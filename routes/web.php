@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,8 @@ Route::get('/admin', function(){
 })->name('admin.home');
 
 /*Routes pour les utilisateurs*/
-Route::get('/admin/users', function(){
+Route::resource('user',UserController::class);
+/*Route::get('/admin/users', function(){
   return view('admin.users.index');
 })->name('users');
 

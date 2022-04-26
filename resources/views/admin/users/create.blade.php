@@ -25,7 +25,8 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <form class="" action="#" method="post">
+        <form class="" action="{{ route('user.store') }}" method="post">
+          @csrf
           <div class="row">
             <div class="col-6">
               <div class="form-group">
