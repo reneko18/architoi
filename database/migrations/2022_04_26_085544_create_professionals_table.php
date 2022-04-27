@@ -18,7 +18,7 @@ return new class extends Migration
           $table->string('name');
           $table->string('lastname');
           $table->string('email')->unique();
-          $table->string('password');
+          $table->string('password')->nullable();
           $table->string('telephone')->unique();
           $table->string('city');
           $table->string('company');
@@ -26,7 +26,7 @@ return new class extends Migration
           $table->string('works');
           $table->text('description');
           $table->string('profession');
-          $table->string('image');
+          $table->string('image')->nullable();
           $table->timestamps();
         });
     }

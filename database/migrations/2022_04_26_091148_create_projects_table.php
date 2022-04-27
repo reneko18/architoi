@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('duration');
             $table->string('area');
             $table->text('description');
-            $table->string('imagemain');
-            $table->string('images');
+            $table->string('imagemain')->nullable();
+            $table->string('images')->nullable();
             $table->timestamps();
         });
     }
