@@ -1,6 +1,6 @@
 @extends('admin.includes.base')
 
-@section('title','Créer Utilisateur')
+@section('title','Edition Utilisateurs')
 
 @section('content')
 
@@ -11,14 +11,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Créer un nouvel utilisateur</h1>
-            @if ($errors->any())
-              @foreach ($errors->all() as $e)
-                <div class="error">
-                  {{ $e }}
-                </div>
-              @endforeach
-            @endif
+            <h1>Editer profil de {{ $professional->name }} {{ $professional->lastname }}</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -32,15 +25,16 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <form class="" action="{{ route('professional.store') }}" method="post">
+        <form class="" action="{{ route('professional.update',$professional->id) }}" method="post">
           @csrf
+          @method("PUT")
           <div class="row">
             <div class="col-6">
               <div class="form-group">
                 <label for="">Sélectionnez la profession</label>
                 @foreach ($professions as $name => $id)
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="profession_id" value="{{ $id }}" {{ old("profession_id","") == $id ? 'checked' : "" }}>
+                    <input class="form-check-input" type="radio" name="radio-professions" value="{{ $id }}" {{ $professional->profession_id == $id ? 'checked' : '' }}>
                     <label class="form-check-label">{{ $name }}</label>
                   </div>
                 @endforeach
@@ -54,31 +48,31 @@
               <div class="row">
                 <div class="form-group col-6">
                   <label for="">Nom</label>
-                  <input type="text" class="form-control" id="" placeholder="Votre nom" name="name" value="{{ old("name","") }}">
+                  <input type="text" class="form-control" id="" placeholder="Votre nom" name="name" value="{{ $professional->name }}">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Prénom</label>
-                  <input type="text" class="form-control" id="" placeholder="Votre Prénom" name="lastname" value="{{ old("lastname","") }}">
+                  <input type="text" class="form-control" id="" placeholder="Votre Prénom" name="lastname" value="{{ $professional->lastname }}">
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-6">
                   <label for="">Adresse email</label>
-                  <input type="email" class="form-control" id="" placeholder="Votre email" name="email" value="{{ old("email","") }}">
+                  <input type="email" class="form-control" id="" placeholder="Votre email" name="email" value="{{ $professional->email }}">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Numéro de téléphone</label>
-                  <input type="number" class="form-control" id="" placeholder="Votre Numéro de téléphone" name="phone" value="{{ old("phone","") }}">
+                  <input type="number" class="form-control" id="" placeholder="Votre Numéro de téléphone" name="phone" value="{{ $professional->phone }}">
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-6">
                   <label for="">Ville</label>
-                  <input type="text" class="form-control" id="" name="city" value="{{ old("city","") }}">
+                  <input type="text" class="form-control" id="" name="city" value="{{ $professional->city }}">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Société</label>
-                  <input type="text" class="form-control" id="" name="company" value="{{ old("company","") }}">
+                  <input type="text" class="form-control" id="" name="company" value="{{ $professional->company }}">
                 </div>
               </div>
               <div class="row">
@@ -94,21 +88,21 @@
               <div class="row">
                 <div class="form-group col-6">
                   <label for="">Ans d’expérience</label>
-                  <input type="number" class="form-control" id="" name="experience" value="{{ old("experience","") }}">
+                  <input type="number" class="form-control" id="" name="experience" value="{{ $professional->experience }}">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Chantiers réalises</label>
-                  <input type="number" class="form-control" id="" name="works" value="{{ old("works","") }}">
+                  <input type="number" class="form-control" id="" name="works" value="{{ $professional->works }}">
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label for="">À propos</label>
-                  <textarea class="form-control" id="" rows="5" name="description">{{ old("description","") }}</textarea>
+                  <textarea class="form-control" id="" rows="5" name="description">{{ $professional->description }}</textarea>
                 </div>
               </div>
               <div class="col-12">
-                <button type="submit" class="btn btn-primary mb-2">Créer</button>
+                <button type="submit" class="btn btn-primary mb-2">Modifier</button>
               </div>
             </div>
           </div>
@@ -119,5 +113,6 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
 
 @endsection

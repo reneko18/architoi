@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\ProfessionalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +26,9 @@ Route::get('/admin', function(){
 
 /*Routes pour les utilisateurs*/
 Route::resource('user',UserController::class);
-/*Route::get('/admin/users', function(){
-  return view('admin.users.index');
-})->name('users');
+/*Routes pour les professionals*/
+Route::resource('professional',ProfessionalController::class);
 
-Route::get('/admin/users/create', function(){
-  return view('admin.users.create');
-})->name('users.create');
 
 /*Routes pour les projets*/
 Route::get('/admin/projets', function(){

@@ -10,4 +10,8 @@ class Profession extends Model
   protected $fillable = [
       'name',
   ];
+  public function professional()
+   {
+       return $this->belongsToMany(Professional::class);
+   }
 }

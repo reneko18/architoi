@@ -12,13 +12,17 @@ class Professional extends Model
       'lastname',
       'email',
       'password',
-      'telephone',
+      'phone',
       'city',
       'company',
       'experience',
       'works',
       'description',
-      'profession',
+      'profession_id',
       'image',
   ];
+  public function profession()
+   {
+       return $this->hasOne(Profession::class);
+   }
 }

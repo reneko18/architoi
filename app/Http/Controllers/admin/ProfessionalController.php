@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\Profession;
+use App\Models\Professional;
+use App\Http\Requests\StoreProfessionalRequest;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class ProfessionalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +18,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return "Index Utilisateurs de la plate-forme";
+        $professionals = Professional::get();
+        return view('admin.users.index', compact('professionals'));
     }
 
     /**
@@ -24,7 +29,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return "Creat Utilisateurs de la plate-forme";
+      $professions = Profession::pluck('id','name');
+
+      return view('admin.users.create', compact('professions'));
     }
 
     /**
@@ -33,9 +40,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProfessionalRequest $request)
     {
-        echo 'Store';
+        $data = $request->all();
+        Professional::create($data);
     }
 
     /**
@@ -46,7 +54,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        echo 'Show';
+        //
     }
 
     /**
@@ -55,9 +63,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Professional $professional)
     {
-        echo 'Edit';
+        $professions = Profession::pluck('id','name');
+
+        return view('admin.users.edit', compact('professional','professions'));
     }
 
     /**
@@ -80,6 +90,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        echo 'Destroy';
+        //
     }
 }
