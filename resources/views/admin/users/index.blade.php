@@ -56,7 +56,7 @@
                 @foreach ($professionals as $p)
                   <tr>
                     <td>{{ $p->name }} {{ $p->lastname }}</td>
-                    <td>{{ $p->profession_id }}</td>
+                    <td>{{ $p->profession_id->name }}</td>
                     <td>{{ $p->email }}</td>
                     <td>{{ $p->city }}</td>
                     <td>
