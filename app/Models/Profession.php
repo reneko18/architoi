@@ -13,6 +13,6 @@ class Profession extends Model
   ];
   public function professional()
    {
-       return $this->belongsTo(Professional::class);
+       return $this->hasOne(Professional::class);
    }
 }
