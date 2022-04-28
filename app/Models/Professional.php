@@ -26,4 +26,8 @@ class Professional extends Model
    {
        return $this->belongsTo(Profession::class);
    }
+   public function project()
+    {
+        return $this->hasOne(Project::class);
+    }
 }

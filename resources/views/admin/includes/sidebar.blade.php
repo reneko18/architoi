@@ -24,7 +24,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('projets') }}" class="nav-link">
+          <a href="{{ route('project.index') }}" class="nav-link">
             <i class="nav-icon fas fa-building"></i>
             <p>
               Projets

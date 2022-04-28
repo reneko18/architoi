@@ -1,15 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
-use App\Models\Profession;
-use App\Models\Professional;
-use App\Http\Requests\StoreProfessionalRequest;
+use App\Models\Project;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProfessionalController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +15,8 @@ class ProfessionalController extends Controller
      */
     public function index()
     {
-        $professionals = Professional::get();
-        return view('admin.users.index', compact('professionals'));
+      $projects = Project::get();
+      return view('admin.projects.index', compact('projects'));
     }
 
     /**
@@ -29,8 +26,7 @@ class ProfessionalController extends Controller
      */
     public function create()
     {
-      $professions = Profession::pluck('id','name');
-      return view('admin.users.create', compact('professions'));
+        //
     }
 
     /**
@@ -39,11 +35,9 @@ class ProfessionalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProfessionalRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->all();
-        Professional::create($data);
-        return to_route('professional.index');
+        //
     }
 
     /**
@@ -63,11 +57,9 @@ class ProfessionalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Professional $professional)
+    public function edit($id)
     {
-        $professions = Profession::pluck('id','name');
-
-        return view('admin.users.edit', compact('professional','professions'));
+        //
     }
 
     /**
@@ -77,10 +69,9 @@ class ProfessionalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreProfessionalRequest $request, Professional $professional)
+    public function update(Request $request, $id)
     {
-      $professional->update($request->validated());      
-      return to_route('professional.index');
+        //
     }
 
     /**
@@ -89,9 +80,8 @@ class ProfessionalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Professional $professional)
+    public function destroy($id)
     {
-      $professional->delete();
-      return to_route('professional.index');
+        //
     }
 }

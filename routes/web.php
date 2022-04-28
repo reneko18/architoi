@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\ProfessionalController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProfessionController;
+use App\Http\Controllers\admin\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,12 +35,5 @@ Route::resource('professional',ProfessionalController::class);
 Route::resource('category',CategoryController::class);
 /*Routes pour les professions*/
 Route::resource('profession',ProfessionController::class);
-
 /*Routes pour les projets*/
-Route::get('/admin/projets', function(){
-  return view('admin.projects.index');
-})->name('projets');
-
-Route::get('/admin/projets/create', function(){
-  return view('admin.projects.create');
-})->name('projets.create');
+Route::resource('project',ProjectController::class);

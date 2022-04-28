@@ -13,5 +13,11 @@ class Project extends Model
       'duration',
       'area',
       'description',
+      'city',
+      'professional_id'
   ];
+  public function professional()
+   {
+       return $this->belongsTo(Professional::class);
+   }
 }

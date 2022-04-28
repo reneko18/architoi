@@ -19,14 +19,15 @@ return new class extends Migration
             $table->string('budget');
             $table->string('duration');
             $table->string('area');
+            $table->string('city');
             $table->text('description');
             $table->string('imagemain')->nullable();
             $table->string('images')->nullable();
             $table->timestamps();
+            $table->foreignId('professional_id')->constrained()->onDelete('cascade');
         });
     }
 
-    /*Il manque le id du professionel pour faire le lien entre le projet et le professionel*/
 
     /**
      * Reverse the migrations.

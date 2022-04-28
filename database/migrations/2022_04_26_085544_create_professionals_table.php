@@ -27,10 +27,6 @@ return new class extends Migration
           $table->text('description');
           $table->string('image')->nullable();
           $table->timestamps();
-          /*$table->unsignedBigInteger('profession_id')->nullable();
-          $table->foreign('profession_id')
-                ->references('id')->on('professions')
-                ->onDelete('set null');*/
           $table->foreignId('profession_id')->constrained()->onDelete('cascade');
         });
     }

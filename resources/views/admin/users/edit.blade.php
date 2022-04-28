@@ -11,7 +11,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Editer profil de {{ $professional->name }} {{ $professional->lastname }}</h1>
+            <h1>Modifier le profil de {{ $professional->name }} {{ $professional->lastname }}</h1>
+            @if ($errors->any())
+              @foreach ($errors->all() as $e)
+                <div class="error">
+                  {{ $e }}
+                </div>
+              @endforeach
+            @endif
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -34,7 +41,7 @@
                 <label for="">Sélectionnez la profession</label>
                 @foreach ($professions as $name => $id)
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio-professions" value="{{ $id }}" {{ $professional->profession_id == $id ? 'checked' : '' }}>
+                    <input class="form-check-input" type="radio" name="profession_id" value="{{ $id }}" {{ $professional->profession_id == $id ? 'checked' : '' }}>
                     <label class="form-check-label">{{ $name }}</label>
                   </div>
                 @endforeach

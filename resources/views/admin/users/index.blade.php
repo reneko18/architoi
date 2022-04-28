@@ -64,7 +64,8 @@
                       <a href="{{ route("professional.edit",$p) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                       <form class="" action="{{ route("professional.destroy",$p) }}" method="post">
                         @csrf
-                        <button type="button" name="button"><i class="fa-solid fa-trash-can"></i></button>
+                        @method('DELETE')
+                        <button type="submit" name="button"><i class="fa-solid fa-trash-can"></i></button>
                       </form>
                     </td>
                   </tr>
