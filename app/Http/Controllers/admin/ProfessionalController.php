@@ -19,10 +19,6 @@ class ProfessionalController extends Controller
     public function index()
     {
         $professionals = Professional::get();
-        //$profession = Professional::find(3)->profession->name;
-        //dd($profession);
-        //$profesion = $professionals->profession_id->name;
-        //dd($profesions);
         return view('admin.users.index', compact('professionals'));
     }
 
@@ -34,7 +30,6 @@ class ProfessionalController extends Controller
     public function create()
     {
       $professions = Profession::pluck('id','name');
-
       return view('admin.users.create', compact('professions'));
     }
 

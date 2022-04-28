@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+use App\Models\Category;
+use App\Http\Requests\StoreCategoryRequest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        echo 'Pour les catégories';
+      $category = Category::get();
+      return view('admin.categories.index',compact('category'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -33,9 +36,11 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        //
+      $data = $request->all();
+      Category::create($data);
+      return to_route('category.index');
     }
 
     /**
@@ -55,9 +60,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+       return view('admin.categories.edit',compact('category'));
     }
 
     /**
@@ -67,9 +72,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreCategoryRequest $request, Category $category)
     {
-        //
+      $category->update($request->validated());
+      return to_route('category.index');
     }
 
     /**
@@ -78,8 +84,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+      $category->delete();
+      return to_route('category.index');
     }
 }

@@ -1,6 +1,6 @@
 @extends('admin.includes.base')
 
-@section('title','Professions')
+@section('title','Catégories')
 
 @section('content')
 
@@ -11,7 +11,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Liste des professions</h1>
+            <h1>Liste des catégories</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -31,7 +31,7 @@
 
         </div>
         <div class="col-3">
-          <a href="{{ route("profession.create") }}" class="btn btn-block bg-gradient-primary btn-lg" type="button" name="button"><i class="fas fa-plus"></i> Créer une nouvelle profession</a>
+          <a href="{{ route("category.create") }}" class="btn btn-block bg-gradient-primary btn-lg" type="button" name="button"><i class="fas fa-plus"></i> Créer une nouvelle catégorie</a>
         </div>
       </div>
 
@@ -46,18 +46,18 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Nom de la profession</th>
+                  <th>Nom de la catégorie</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($profession as $p)
+                @foreach ($category as $c)
                   <tr>
-                    <td>{{ $p->name }}</td>
+                    <td>{{ $c->name }}</td>
                     <td>
-                      <a href="{{ route("profession.show",$p) }}"><i class="fa-solid fa-eye"></i></a>
-                      <a href="{{ route("profession.edit",$p) }}"><i class="fa-solid fa-pen-to-square"></i></a>
-                      <form class="" action="{{ route("profession.destroy",$p) }}" method="post">
+                      <a href="{{ route("category.show",$c) }}"><i class="fa-solid fa-eye"></i></a>
+                      <a href="{{ route("category.edit",$c) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                      <form class="" action="{{ route("category.destroy",$c) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" name="button"><i class="fa-solid fa-trash-can"></i></button>
@@ -68,7 +68,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Nom de la profession</th>
+                  <th>Nom de la catégorie</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>

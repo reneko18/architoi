@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+use App\Models\Profession;
+use App\Http\Requests\StoreProfessionRequest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,7 +16,8 @@ class ProfessionController extends Controller
      */
     public function index()
     {
-        echo 'Pour les professions';
+        $profession = Profession::get();
+        return view('admin.professions.index',compact('profession'));
     }
 
     /**
@@ -24,7 +27,7 @@ class ProfessionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.professions.create');
     }
 
     /**
@@ -33,9 +36,11 @@ class ProfessionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProfessionRequest $request)
     {
-        //
+      $data = $request->all();
+      Profession::create($data);
+      return to_route('profession.index');
     }
 
     /**
@@ -55,9 +60,9 @@ class ProfessionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Profession $profession)
     {
-        //
+      return view('admin.professions.edit',compact('profession'));
     }
 
     /**
@@ -67,9 +72,10 @@ class ProfessionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProfessionRequest $request, Profession $profession)
     {
-        //
+        $profession->update($request->validated());
+        return to_route('profession.index');
     }
 
     /**
@@ -78,8 +84,9 @@ class ProfessionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Profession $profession)
     {
-        //
+        $profession->delete();
+        return to_route('profession.index');
     }
 }

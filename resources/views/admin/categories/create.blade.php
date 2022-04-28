@@ -1,6 +1,6 @@
 @extends('admin.includes.base')
 
-@section('title','Créer Profession')
+@section('title','Créer Catégorie')
 
 @section('content')
 
@@ -11,7 +11,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Créer une nouvelle profession</h1>
+            <h1>Créer une nouvelle catégorie</h1>
             @if ($errors->any())
               @foreach ($errors->all() as $e)
                 <div class="error">
@@ -32,13 +32,13 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <form class="" action="{{ route('profession.store') }}" method="post">
+        <form class="" action="{{ route('category.store') }}" method="post">
           @csrf
           <div class="row">
             <div class="col-6">
               <div class="row">
                 <div class="form-group col-6">
-                  <label for="">Nom de la profession</label>
+                  <label for="">Nom de la catégorie</label>
                   <input type="text" class="form-control" id="" placeholder="" name="name">
                 </div>
               <div class="col-12">
