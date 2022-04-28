@@ -70,7 +70,7 @@
                     </div>
                     <input type="number" class="form-control" id="" placeholder="" name="area" value="{{ old("area","") }}">
                   </div>
-                  <small id="" class="form-text text-muted">Surface en m²</small>                  
+                  <small id="" class="form-text text-muted">Surface en m²</small>
                 </div>
               </div>
               <div class="row">
@@ -79,17 +79,34 @@
                   <input type="text" class="form-control" id="" placeholder="" name="city" value="{{ old("city","") }}">
                 </div>
                 <div class="form-group col-6">
-
+                  <label for="">Rénovation</label>
+                  <select class="form-control" id="" name="attribute_id">
+                    <option value=""></option>
+                    @foreach ($attributes as $a)
+                      <option value="{{ $a->id }}" {{ old("attribute_id","") == $a->id ? "selected" : "" }}>{{ $a->name }}</option>
+                    @endforeach
+                  </select>
                 </div>
               </div>
-              <div class="form-group col-12">
-                <label for="">Nom complet du professionnel</label>
-                <select class="form-control" id="" name="professional_id">
-                  <option value=""></option>
-                  @foreach ($professionals as $p)
-                    <option value="{{ $p->id }}" {{ old("professional_id","") == $p->id ? "selected" : "" }}>{{ $p->name }} {{ $p->lastname }}</option>
-                  @endforeach
-                </select>
+              <div class="row">
+                <div class="form-group col-6">
+                  <label for="">Nom complet du professionnel</label>
+                  <select class="form-control" id="" name="type_id">
+                    <option value=""></option>
+                    @foreach ($professionals as $p)
+                      <option value="{{ $p->id }}" {{ old("type_id","") == $p->id ? "selected" : "" }}>{{ $p->name }} {{ $p->lastname }}</option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="form-group col-6">
+                  <label for="">Type de rénovation</label>
+                  <select class="form-control" id="" name="professional_id">
+                    <option value=""></option>
+                    @foreach ($types as $t)
+                      <option value="{{ $t->id }}" {{ old("attribute_id","") == $t->id ? "selected" : "" }}>{{ $t->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
               </div>
               <div class="form-group col-12">
                 <label for="">Description</label>

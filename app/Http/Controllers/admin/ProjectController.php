@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 use App\Models\Project;
 use App\Models\Professional;
+use App\Models\Attribute;
+use App\Models\Type;
 use App\Http\Requests\StoreProjectRequest;
 
 use App\Http\Controllers\Controller;
@@ -28,8 +30,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
+      $attributes = Attribute::get();
+      $types = Type::get();
       $professionals = Professional::get();
-      return view('admin.projects.create' , compact('professionals'));
+      return view('admin.projects.create' , compact('professionals','attributes','types'));
     }
 
     /**
@@ -64,7 +68,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-      $professionals = Professional::get();      
+      $professionals = Professional::get();
       return view('admin.projects.edit' , compact('project','professionals'));
     }
 

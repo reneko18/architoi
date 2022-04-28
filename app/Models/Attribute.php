@@ -10,4 +10,8 @@ class Attribute extends Model
   protected $fillable = [
       'name',
   ];
+  public function project()
+   {
+       return $this->hasOne(Project::class);
+   }
 }

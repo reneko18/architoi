@@ -20,4 +20,12 @@ class Project extends Model
    {
        return $this->belongsTo(Professional::class);
    }
+   public function attribute()
+    {
+        return $this->belongsTo(Attribute::class);
+    }
+    public function type()
+     {
+         return $this->belongsTo(Type::class);
+     }
 }
