@@ -32,10 +32,18 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('professions') }}" class="nav-link">
+          <a href="{{ route('profession.index') }}" class="nav-link">
             <i class="nav-icon fas fa-user-tie"></i>
             <p>
               Professions
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('category.index') }}" class="nav-link">
+            <i class="nav-icon fa-solid fa-city"></i>
+            <p>
+              Categories
             </p>
           </a>
         </li>

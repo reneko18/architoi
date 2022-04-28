@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\ProfessionalController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\ProfessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +30,10 @@ Route::get('/admin', function(){
 Route::resource('user',UserController::class);
 /*Routes pour les professionals*/
 Route::resource('professional',ProfessionalController::class);
-
+/*Routes pour les catégories*/
+Route::resource('category',CategoryController::class);
+/*Routes pour les professions*/
+Route::resource('profession',ProfessionController::class);
 
 /*Routes pour les projets*/
 Route::get('/admin/projets', function(){
@@ -38,12 +43,3 @@ Route::get('/admin/projets', function(){
 Route::get('/admin/projets/create', function(){
   return view('admin.projects.create');
 })->name('projets.create');
-
-/*Routes pour les professions*/
-Route::get('/admin/professions', function(){
-  return view('admin.professions.index');
-})->name('professions');
-
-Route::get('/admin/professions/create', function(){
-  return view('admin.professions.create');
-})->name('professions.create');
