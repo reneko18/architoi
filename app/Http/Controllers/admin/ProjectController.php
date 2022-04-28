@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\admin;
 use App\Models\Project;
+use App\Models\Professional;
+use App\Http\Requests\StoreProjectRequest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -26,7 +28,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+      $professionals = Professional::get();
+      return view('admin.projects.create' , compact('professionals'));
     }
 
     /**
@@ -35,9 +38,11 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        //
+      $data = $request->all();
+      Project::create($data);
+      return to_route('project.index');
     }
 
     /**
@@ -57,9 +62,10 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
-        //
+      $professionals = Professional::get();      
+      return view('admin.projects.edit' , compact('project','professionals'));
     }
 
     /**
@@ -69,9 +75,10 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProjectRequest $request, Project $project)
     {
-        //
+      $project->update($request->validated());
+      return to_route('project.index');
     }
 
     /**
@@ -80,8 +87,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        //
+      $project->delete();
+      return to_route('project.index');
     }
 }

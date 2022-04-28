@@ -30,7 +30,7 @@
 
         </div>
         <div class="col-3">
-          <a class="btn btn-block bg-gradient-primary btn-lg" type="button" name="button"><i class="fas fa-plus"></i> Créer un nouveau projet</a>
+          <a href="{{ route("project.create") }}" class="btn btn-block bg-gradient-primary btn-lg" type="button" name="button"><i class="fas fa-plus"></i> Créer un nouveau projet</a>
         </div>
       </div>
 
@@ -48,6 +48,7 @@
                   <th>Nom du projet</th>
                   <th>Professionnel</th>
                   <th>Ville du projet</th>
+                  <th>Dernière modification</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -57,6 +58,7 @@
                     <td>{{ $p->name }}</td>
                     <td>{{ $p->professional->name }} {{ $p->professional->lastname }}</td>
                     <td>{{ $p->city }}</td>
+                    <td>{{ \Carbon\Carbon::parse($p->updated_at)->format('l jS \\of F Y h:i:s A') }}</td>
                     <td>
                       <a href="{{ route("project.show",$p) }}"><i class="fa-solid fa-eye"></i></a>
                       <a href="{{ route("project.edit",$p) }}"><i class="fa-solid fa-pen-to-square"></i></a>
