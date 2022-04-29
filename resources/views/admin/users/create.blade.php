@@ -47,6 +47,10 @@
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Ajouter photo de profil</label>
+                <div class="dropzone"></div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Ajouter photo de profil</label>
                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
               </div>
             </div>
@@ -121,3 +125,19 @@
   <!-- /.content-wrapper -->
 
 @endsection
+@push('script-dropzone')
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js" integrity="sha512-oQq8uth41D+gIH/NJvSJvVB85MFk1eWpMK6glnkg6I7EdMqC1XVkW7RxLheXwmFdG03qScCM7gKS/Cx3FYt7Tg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript">
+        Dropzone.autoDiscover = false;
+        var myDropzone = new Dropzone('.dropzone',{
+        url: '/image',
+        dictDefaultMessage : 'Déposez vos images pour les téléverser',
+        headers: {
+          'X-CSRF-TOKEN' : '{{ csrf_token() }}'
+        },
+        acceptedFiles : 'image/*',
+        maxFilesize : 1,
+        paramName : 'image'
+      });
+  </script>
+@endpush

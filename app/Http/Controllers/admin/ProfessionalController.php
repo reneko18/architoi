@@ -79,7 +79,7 @@ class ProfessionalController extends Controller
      */
     public function update(StoreProfessionalRequest $request, Professional $professional)
     {
-      $professional->update($request->validated());      
+      $professional->update($request->validated());
       return to_route('professional.index');
     }
 

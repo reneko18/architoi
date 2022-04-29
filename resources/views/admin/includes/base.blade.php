@@ -28,6 +28,9 @@
   <link rel="stylesheet" href="{{ url('adminlte/plugins/summernote/summernote-bs4.min.css')}}">
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ url('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+  <!-- Dropzone JS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.css" integrity="sha512-7uSoC3grlnRktCWoO4LjHMjotq8gf9XDFQerPuaph+cqR7JC9XKGdvN+UwZMC14aAaBDItdRj3DcSDs4kMWUgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Bootstrap-->
   <link rel="stylesheet" href="{{ url('adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ url('adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
   <!-- Favicon-->
@@ -97,5 +100,6 @@
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="{{ url('adminlte/dist/js/pages/dashboard.js')}}"></script>
 @stack('script-user')
+@stack('script-dropzone')
   </body>
   </html>

@@ -14,7 +14,9 @@ class Project extends Model
       'area',
       'description',
       'city',
-      'professional_id'
+      'professional_id',
+      'attribute_id',
+      'type_id'
   ];
   public function professional()
    {

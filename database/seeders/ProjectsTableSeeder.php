@@ -22,6 +22,8 @@ class ProjectsTableSeeder extends Seeder
         'area'=>'80',
         'city'=>'Paris',
         'professional_id'=> 3,
+        'attribute_id'=> 1,
+        'type_id'=> 1,
         'description'=>"Ce duplex atypique et très lumineux, entre appartement et maison, présente un bel espace de vie.
 
 Sa configuration offre des fonctions bien distinctes. Ici, on retrouve une belle entrée d'une teinte bleu nuit, comme un cocon pour l'isoler du reste de l'appartement avec ses portes qui se fondent dans les murs. Rappel de l'entrée, la couleur des murs des toilettes apporte élégance et se marie à la perfection avec le papier peint aux portraits abstraits, créant une sensation d'intimité.
@@ -47,6 +49,8 @@ Une ambiance apaisante, relaxante et douce avec ses teintes beiges rosées et bl
         'area'=>'41',
         'city'=>'Paris',
         'professional_id'=> 2,
+        'attribute_id'=> 2,
+        'type_id'=> 2,
         'description'=>"Un exploit pour ce beau pied à terre parisien qui permet aux utilisateurs de se sentir à l'aise dans ce 40m2/. En effet, arkala a conçu un projet qui privilégie un espace de vie confortable, gardant 15 m2 pour toutes les fonctions 'techniques' : cuisine, salle de bain et chambre. Pour cette dernière arkala a pensé à une cabine de bateau très cosy sans rien sacrifier aux dimensions du lit qui fait bien 2x1,60 m. Pour la pièce de reception un beau papier peint panoramique contribue à agrandir l'espace ! ",
       ]);
       Project::create([
@@ -56,6 +60,8 @@ Une ambiance apaisante, relaxante et douce avec ses teintes beiges rosées et bl
         'area'=>'48',
         'city'=>'Paris',
         'professional_id'=> 1,
+        'attribute_id'=> 1,
+        'type_id'=> 3,
         'description'=>"Un appartement d'origine que nous avons inversé: la chambre à la place du séjour, la cuisine et le séjour à la place de la chambre et de la salle de bain d'origine, la chambre d'enfant à la place de la cuisine. une 'ligne' noire contenant les toilettes, la salle de bain, des armoires et enfin la nouvelle cuisine, divise et redistribue les différents espaces tout en laissant imaginer, sur le plafond, l'ancienne distribution des pièces.",
       ]);
     }

@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('images')->nullable();
             $table->timestamps();
             $table->foreignId('professional_id')->constrained()->onDelete('cascade');
-            $table->foreignId('attribute_id')->constrained()->onDelete('cascade');
-            $table->foreignId('type_id')->constrained()->onDelete('cascade');
+            $table->foreignId('attribute_id');
+            $table->foreignId('type_id');
         });
     }
 

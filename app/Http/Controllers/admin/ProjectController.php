@@ -68,8 +68,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+      $attributes = Attribute::get();
+      $types = Type::get();
       $professionals = Professional::get();
-      return view('admin.projects.edit' , compact('project','professionals'));
+      return view('admin.projects.edit' , compact('project','professionals','attributes','types'));
     }
 
     /**
