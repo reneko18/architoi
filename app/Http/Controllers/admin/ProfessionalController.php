@@ -65,10 +65,8 @@ class ProfessionalController extends Controller
      */
     public function edit(Professional $professional)
     {
-        //$pro = Profession::pluck('id','name');
 
-      $pro = Profession::get();
-        //dd($professional->first()->professions->profession_id);
+        $pro = Profession::get();        
         return view('admin.users.edit', compact('professional','pro'));
     }
 

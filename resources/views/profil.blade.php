@@ -10,6 +10,10 @@
       <h2>Profil</h2>
       <img src="" alt="">
       <p>{{ $professional->name }} {{ $professional->lastname }}</p>
+      @foreach ($professional->professions as $p)
+        {{ $loop->first ? '' : ', ' }}     
+        <span>{{ $p->name }}</span>
+      @endforeach
       <p>{{ $professional->city }}</p>
       <p>{{ $professional->experience }} ans d’expérience</p>
       <p>{{ $professional->works }} chantiers réalisés</p>

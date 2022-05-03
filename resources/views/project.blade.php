@@ -7,7 +7,7 @@
 @section('content')
   <section class="container-fluid">
     <div class="container">
-      <h2>Profil</h2>
+      <h2>Projet</h2>
       <img src="" alt="">
       <p>{{ $project->name }}</p>
       <p>{{ $project->city }}</p>
@@ -19,7 +19,7 @@
   </section>
   <section class="container-fluid">
     <div class="container">
-      <h2>Projets</h2>
+      <h2>Images</h2>
       <div class="row">
 
       </div>

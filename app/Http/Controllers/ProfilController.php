@@ -14,4 +14,11 @@ class ProfilController extends Controller
       $project = Project::get();
       return view('profil',compact('professional', 'project'));
   }
+
+  public function edit(Professional $professional)
+  {
+
+      $pro = Profession::get();
+      return view('admin.users.edit', compact('professional','pro'));
+  }
 }
