@@ -66,7 +66,7 @@ class ProfessionalController extends Controller
     public function edit(Professional $professional)
     {
 
-        $pro = Profession::get();        
+        $pro = Profession::get();
         return view('admin.users.edit', compact('professional','pro'));
     }
 
@@ -79,8 +79,19 @@ class ProfessionalController extends Controller
      */
     public function update(StoreProfessionalRequest $request, Professional $professional)
     {
-      $professional->update($request->validated());
-      return to_route('professional.index');
+      $professional->name = $request->input('name');
+      $professional->lastname = $request->input('lastname');
+      $professional->email = $request->input('email');
+      $professional->phone = $request->input('phone');
+      $professional->city = $request->input('city');
+      $professional->company = $request->input('company');
+      $professional->experience = $request->input('experience');
+      $professional->works = $request->input('works');
+      $professional->description = $request->input('description');
+      $professional->update();
+      $professional->professions()->sync($request->profession_id);
+      return back();
+      //return to_route('professional.index');
     }
 
     /**

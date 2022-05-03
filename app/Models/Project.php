@@ -24,10 +24,10 @@ class Project extends Model
    }
    public function attribute()
     {
-        return $this->belongsTo(Attribute::class);
+        return $this->hasOne(Attribute::class);
     }
     public function type()
      {
-         return $this->belongsTo(Type::class);
+         return $this->hasOne(Type::class);
      }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProfessionController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\ProjetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,12 @@ Route::get('/conditions-generales-utilisation', function () {
 
 /*Route pour chaque profil sur le frontend*/
 Route::get('/profil/{professional}', [ProfilController::class, 'show']);
+Route::get('/profil/{professional}/edit', [ProfilController::class, 'edit']);
 
 /*Route pour chaque projet sur le frontend*/
+Route::get('/projet/{project}', [ProjetController::class, 'show']);
+Route::get('/projet/{project}/edit', [ProjetController::class, 'edit'])->name('projet-edit');
+Route::put('/projet/{project}', [ProjetController::class, 'update'])->name('projet.update');
 
 Route::get('/admin', function(){
   return view('admin.index');

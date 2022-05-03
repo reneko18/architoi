@@ -12,6 +12,6 @@ class Attribute extends Model
   ];
   public function project()
    {
-       return $this->hasOne(Project::class);
+       return $this->belongsToMany(Project::class);
    }
 }

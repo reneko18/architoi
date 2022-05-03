@@ -7,7 +7,7 @@
 @section('content')
   <section class="container-fluid">
     <div class="container">
-      <h2>Projet</h2>
+      <h2>Projet</h2>        
       <img src="" alt="">
       <p>{{ $project->name }}</p>
       <p>{{ $project->city }}</p>
