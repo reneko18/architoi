@@ -39,12 +39,12 @@
             <div class="col-6">
               <div class="form-group">
                 <label for="">Sélectionnez la profession</label>
-                @foreach ($professions as $name => $id)
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="profession_id" value="{{ $id }}" {{ $professional->profession_id == $id ? 'checked' : '' }}>
-                    <label class="form-check-label">{{ $name }}</label>
-                  </div>
-                @endforeach
+                @foreach ($pro as $p)
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="profession_id[]" value="{{ $p->id }}" {{ $professional->professions->pluck('id')->contains($p->id) ? 'checked' : '' }}>
+                      <label class="form-check-label">{{ $p->name }}</label>
+                    </div>
+                  @endforeach
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Ajouter photo de profil</label>

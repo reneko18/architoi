@@ -18,8 +18,8 @@ class ProfessionalController extends Controller
      */
     public function index()
     {
-        $professionals = Professional::get();
-        return view('admin.users.index', compact('professionals'));
+        $professional = Professional::get();
+        return view('admin.users.index', compact('professional'));
     }
 
     /**
@@ -65,9 +65,11 @@ class ProfessionalController extends Controller
      */
     public function edit(Professional $professional)
     {
-        $professions = Profession::pluck('id','name');
+        //$pro = Profession::pluck('id','name');
 
-        return view('admin.users.edit', compact('professional','professions'));
+      $pro = Profession::get();
+        //dd($professional->first()->professions->profession_id);
+        return view('admin.users.edit', compact('professional','pro'));
     }
 
     /**

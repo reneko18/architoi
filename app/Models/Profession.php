@@ -11,8 +11,8 @@ class Profession extends Model
   protected $fillable = [
       'name',
   ];
-  public function professional()
+  public function professionals()
    {
-       return $this->hasOne(Professional::class);
+       return $this->belongsToMany(Professional::class,'professional_profession','professional_id','profession_id');
    }
 }

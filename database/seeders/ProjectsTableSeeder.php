@@ -64,5 +64,17 @@ Une ambiance apaisante, relaxante et douce avec ses teintes beiges rosées et bl
         'type_id'=> 3,
         'description'=>"Un appartement d'origine que nous avons inversé: la chambre à la place du séjour, la cuisine et le séjour à la place de la chambre et de la salle de bain d'origine, la chambre d'enfant à la place de la cuisine. une 'ligne' noire contenant les toilettes, la salle de bain, des armoires et enfin la nouvelle cuisine, divise et redistribue les différents espaces tout en laissant imaginer, sur le plafond, l'ancienne distribution des pièces.",
       ]);
+      Project::create([
+        'name'=>'Poissonnière Paris 10',
+        'budget'=>'67000',
+        'duration'=>'3',
+        'area'=>'61',
+        'city'=>'Paris',
+        'professional_id'=> 1,
+        'attribute_id'=> 1,
+        'type_id'=> 3,
+        'description'=>"Un projet que se dilate... comme par magie.
+        nous avons utilisé un obstacle ( le mur porteur entre le séjour et les chambres d'origine, comme un atout pour 'dilater' l'espace de vie.",
+      ]);
     }
 }

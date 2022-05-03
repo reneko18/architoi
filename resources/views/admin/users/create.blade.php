@@ -39,8 +39,8 @@
               <div class="form-group">
                 <label for="">Sélectionnez la profession</label>
                 @foreach ($professions as $name => $id)
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="profession_id" value="{{ $id }}" {{ old("profession_id","") == $id ? 'checked' : "" }}>
+                  <div class="form-check">                  
+                    <input class="form-check-input" type="checkbox" name="profession_id[]" value="{{ $id }}" {{ in_array($id, old('profession_id',[])) ? ' checked' : '' }}>
                     <label class="form-check-label">{{ $name }}</label>
                   </div>
                 @endforeach

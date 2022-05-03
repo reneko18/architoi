@@ -22,12 +22,12 @@ class Professional extends Model
       'profession_id',
       'image',
   ];
-  public function profession()
+  public function professions()
    {
-       return $this->belongsTo(Profession::class);
+       return $this->belongsToMany(Profession::class,'professional_profession','professional_id','profession_id');
    }
    public function project()
     {
-        return $this->hasOne(Project::class);
+        return $this->hasMany(Project::class);
     }
 }

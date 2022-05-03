@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\ProfessionalController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProfessionController;
 use App\Http\Controllers\admin\ProjectController;
+use App\Http\Controllers\ProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,23 @@ use App\Http\Controllers\admin\ProjectController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/login', function () {
+    return view('login');
+});
+Route::get('/inscription-espace-pro', function () {
+    return view('sign');
+});
+Route::get('/politique-de-confidentialite', function () {
+    return view('terms');
+});
+Route::get('/conditions-generales-utilisation', function () {
+    return view('conditions');
 });
 
+/*Route pour chaque profil sur le frontend*/
+Route::get('/profil/{professional}', [ProfilController::class, 'show']);
+
+/*Route pour chaque projet sur le frontend*/
 
 Route::get('/admin', function(){
   return view('admin.index');

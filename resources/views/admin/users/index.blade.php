@@ -53,10 +53,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($professionals as $p)
+                @foreach ($professional as $p)
                   <tr>
                     <td>{{ $p->name }} {{ $p->lastname }}</td>
-                    <td>{{ $p->profession->name }}</td>
+                    <td>                      
+                      @foreach ($p->professions as $profession)
+                        <div>{{ $profession->name }}</div>
+                      @endforeach
+                    </td>
                     <td>{{ $p->email }}</td>
                     <td>{{ $p->city }}</td>
                     <td>

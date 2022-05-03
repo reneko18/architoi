@@ -27,7 +27,7 @@ return new class extends Migration
           $table->text('description');
           $table->string('image')->nullable();
           $table->timestamps();
-          $table->foreignId('profession_id')->constrained()->onDelete('cascade');
+          //$table->foreignId('profession_id')->constrained()->onDelete('cascade');
         });
     }
 
