@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ProfessionController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,6 @@ Route::resource('category',CategoryController::class);
 Route::resource('profession',ProfessionController::class);
 /*Routes pour les projets*/
 Route::resource('project',ProjectController::class);
+
+/*Routes pour les images*/
+Route::post('/upload',[PhotoController::class, 'store'])->name('image.store');
