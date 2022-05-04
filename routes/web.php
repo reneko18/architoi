@@ -59,4 +59,4 @@ Route::resource('profession',ProfessionController::class);
 Route::resource('project',ProjectController::class);
 
 /*Routes pour les images*/
-Route::post('/upload',[PhotoController::class, 'store'])->name('image.store');
+Route::post('/professional/{professional}/photos',[PhotoController::class, 'store'])->name('image.store');

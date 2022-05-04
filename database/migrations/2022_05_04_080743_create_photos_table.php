@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('professional_id');
+            $table->string('url');
             $table->timestamps();
         });
     }

@@ -130,7 +130,7 @@
   <script type="text/javascript">
         Dropzone.autoDiscover = false;
         var myDropzone = new Dropzone('.dropzone',{
-        url: '{{ route('image.store') }}',
+        url: '/professional/{{$professional->id}}/photos',
         dictDefaultMessage : 'Déposez vos images pour les téléverser',
         headers: {
           'X-CSRF-TOKEN' : '{{ csrf_token() }}'
