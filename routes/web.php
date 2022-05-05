@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\CropController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,7 @@ Route::resource('project',ProjectController::class);
 
 /*Routes pour les images*/
 Route::post('/professional/{professional}/photos',[PhotoController::class, 'store'])->name('image.store');
+
+/*Routes pour images avec Croppie*/
+Route::get('/image-crop', [CropController::class, "imageCrop"]);
+Route::post('/image-crop', [CropController::class, "imageCropPost"])->name("imageCrop");
